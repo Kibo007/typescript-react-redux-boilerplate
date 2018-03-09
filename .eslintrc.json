@@ -1,0 +1,20 @@
+{
+    "root": true,
+    "extends": ["kreditech", "plugin:react/recommended"],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "max-len": [
+            1,
+            150
+        ],
+        "indent": ["error", 4, {
+            "SwitchCase": 1
+        }],
+        "no-param-reassign": ["error", { "props": false }]
+    }
+}
