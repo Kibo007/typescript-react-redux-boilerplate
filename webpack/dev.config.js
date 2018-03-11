@@ -4,11 +4,6 @@ const merge = require('webpack-merge');
 const baseConfig = require('./base.config.js');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 
-baseConfig.module.rules.push({
-    test: /(\.css|\.scss)$/,
-    loader: 'style-loader!css-loader!sass-loader'
-});
-
 module.exports = merge(baseConfig, {
     devtool: 'eval-source-map',
 
