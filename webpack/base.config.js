@@ -2,6 +2,7 @@ const path = require('path');
 const APP_DIR = path.resolve(__dirname, '../ui');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 
 const outputPrefix = '[name]';
 
@@ -28,7 +29,7 @@ module.exports = {
           fallback: 'style-loader',
           use: [
             {
-              loader: 'css-loader',
+              loader: 'typings-for-css-modules-loader',
               options: {
                 modules: true,
                 importLoaders: 1,
@@ -51,6 +52,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.WatchIgnorePlugin([
+      /scss\.d\.ts$/
+    ]),
     new ExtractTextPlugin("styles.css"),
     HtmlWebpackPluginConfig
   ],
