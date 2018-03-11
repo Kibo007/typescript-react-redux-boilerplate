@@ -6,8 +6,8 @@ import createHistory from 'history/createBrowserHistory';
 import app from './modules/app';
 
 const rootReducer = combineReducers({
-    router: routerReducer,
-    app,
+  router: routerReducer,
+  app,
 });
 
 export const history = createHistory();
@@ -15,25 +15,25 @@ export const history = createHistory();
 const initialState = {};
 const enhancers = [];
 const middleware = [
-    thunk,
-    routerMiddleware(history)
+  thunk,
+  routerMiddleware(history),
 ];
 
 if (process.env.NODE_ENV === 'development') {
-    const devToolsExtension = (<any>window).devToolsExtension;
+  const devToolsExtension = (<any>window).devToolsExtension;
 
-    if (typeof devToolsExtension === 'function') {
-        enhancers.push(devToolsExtension());
-    }
+  if (typeof devToolsExtension === 'function') {
+    enhancers.push(devToolsExtension());
+  }
 }
 
 const composedEnhancers = compose(
-    applyMiddleware(...middleware),
-    ...enhancers
+  applyMiddleware(...middleware),
+  ...enhancers,
 );
 
 export default createStore(
-    rootReducer,
-    initialState,
-    composedEnhancers
+  rootReducer,
+  initialState,
+  composedEnhancers,
 );

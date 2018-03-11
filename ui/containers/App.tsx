@@ -20,4 +20,4 @@ class App extends React.Component<Props, {}> {
   }
 }
 
-export default connect(mapStateToProps, mapStateToDispatch)(App)
+export default connect(mapStateToProps, mapStateToDispatch)(App);

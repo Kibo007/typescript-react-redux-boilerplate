@@ -1,4 +1,3 @@
-
 // --------------------------
 // Actions
 // --------------------------
@@ -10,7 +9,7 @@ export const ADD_LOAD = 'app';
 // --------------------------
 
 const updateHeader = () => ({
-    type: ADD_LOAD
+  type: ADD_LOAD,
 });
 
 
@@ -19,30 +18,30 @@ const updateHeader = () => ({
 // --------------------------
 
 const initialState = {
-    load: ''
+  load: '',
 };
 
 interface InitialState {
-    load: string
+  load: string
 }
 
 interface IAction {
-    type: string
-    payload: string
+  type: string
+  payload: string,
 }
 
 type Action = IAction;
 
-export default (state: InitialState = initialState, action: Action ) => {
-    switch (action.type) {
-        case ADD_LOAD:
-            return {
-                ...state,
-                load: action.payload
-            };
-        default:
-            return state;
-    }
+export default (state: InitialState = initialState, action: Action) => {
+  switch (action.type) {
+    case ADD_LOAD:
+      return {
+        ...state,
+        load: action.payload,
+      };
+    default:
+      return state;
+  }
 };
 
 
@@ -52,10 +51,9 @@ export default (state: InitialState = initialState, action: Action ) => {
 
 export const mapStateToProps = (state: any) => {
 
-    return {
-        load: state.app.load
-    };
+  return {
+    load: state.app.load,
+  };
 };
 
-export const mapStateToDispatch = {
-};
+export const mapStateToDispatch = {};

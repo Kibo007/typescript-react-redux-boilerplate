@@ -9,17 +9,6 @@ const baseConfig = require('./base.config.js');
 
 const BUILD_DIR = path.resolve(__dirname, '../../dist');
 
-baseConfig.module.rules.push({
-    test: /(\.css|\.scss)$/,
-    use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: ['css-loader', {
-            loader: 'postcss-loader',
-            options: {plugins: [require('autoprefixer')]}
-        }, 'sass-loader']
-    })
-});
-
 module.exports = merge(baseConfig, {
     output: {
         path: BUILD_DIR,
