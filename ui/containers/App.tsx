@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux';
 import { mapStateToProps, mapStateToDispatch } from '../../data/modules/app';
+import './app.scss';
 
 import Hello from './../components/hello/Hello';
 
